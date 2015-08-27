@@ -1,7 +1,18 @@
 <% if @photos.count > 0 %>
+<div class="row">
 	<% @photos.each do |photo| %>
-		<img src="<%= photo %>">
-	<% end %>
+        	<div class="col s6 m4">
+          		<div class="card">
+            		<div class="card-image">
+              			<img src="<%= photo %>">
+            		</div>
+            		<div class="card-content">
+              			<p><i class="tiny material-icons">favorite</i> # of likes</p>
+            		</div>
+          		</div>
+        	</div>
+  <% end %>
+  </div>
 <% else %>
 	<h4>Sorry, no photos here...</h4>
 <% end %>

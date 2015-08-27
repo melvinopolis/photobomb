@@ -3,13 +3,44 @@
 <head>
 	<title><%= @title + ' | Instagram API | ' %></title>
 
-	<link rel="stylesheet" type="text/css" href="/reset.css">
+	<!-- Compiled and minified CSS -->
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
-	<h1><a href="/">The Photobomb</a></h1>
-	<h2>'cause photos are nice.</h2>
+	<div class="container">
+		<h1><a href="/">The Photobomb</a></h1>
+		<h2>'cause photos are nice.</h2>
 
-	<%= yield %>
+		<form id="search-photos" action="/search" method="post" style="text-align:center">
+	 		<div class="input-field">
+	 			<label for="search">#hashtag</label>
+	 			<input name="hashtag" type="text" />
+	 		</div>
+	 		
+	 		<div class="input-field">
+	 			<label>choose an image resolution</label>
+	 			<br>
+	 			<select name="resolution" class="browser-default">
+					<option value="" disabled selected>Pick the size</option>
+					<option value="thumbnail">Thumbnail</option>
+					<option value="low_resolution">Low Resolution</option>
+					<option value="standard_resolution">Standard Resolution</option>
+		 		</select>
+	 		</div>
+	 		<br>
+	 		<button type="submit" name="submit" value="search" class="waves-effect waves-light btn">search hashtags</button> 
+		</form>
+		<br>
+
+	
+		<%= yield %>
+	</div>
+	
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<!-- Compiled and minified JavaScript -->
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
 </body>
 </html>
